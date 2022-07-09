@@ -1,2 +1,2 @@
-# node-ts-basics
+# node-ts-playground
 checking basic functionality 
