@@ -1,0 +1,6 @@
+registry=https://nxrepo.fuib.com/repository/fuib-npm-group/
+email=${EMAIL}
+_auth=${AUTH_TOKEN}
+
+strict-ssl=false
+always-auth=true
