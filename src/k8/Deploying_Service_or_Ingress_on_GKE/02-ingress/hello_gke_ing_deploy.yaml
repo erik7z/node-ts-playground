@@ -1,0 +1,20 @@
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: hello-gke-ing
+spec:
+  replicas: 3
+  selector:
+    matchLabels:
+      app: hello-gke-ing
+  template:
+    metadata:
+      labels:
+        app: hello-gke-ing
+    spec:
+      containers:
+        - name: hello-kubernetes
+          image: paulbouwer/hello-kubernetes:1.5
+          ports:
+            - containerPort: 8080
