@@ -7,8 +7,8 @@ By default, creates volume of type emptyDir, that lasts for the life of the Pod,
 even if the Container terminates and restarts.
 
 ```sh
-kubectl create -f << EOF -
 # (busybox.yaml)
+kubectl create -f << EOF -
 kind: Pod
 apiVersion: v1
 metadata:
