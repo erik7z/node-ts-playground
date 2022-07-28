@@ -1,0 +1,14 @@
+kind: Pod
+apiVersion: v1
+metadata:
+  name: busybox-pod
+spec:
+  volumes:
+    - name: cache
+  containers:
+    - name: bysybox-container
+      image: busybox
+      command: ['sleep', '3600']
+      volumeMounts:
+        - mountPath: "/cache"
+          name: cache
