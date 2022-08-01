@@ -1,0 +1,31 @@
+apiVersion: v1
+kind: PersistentVolume
+metadata:
+  name: sc-volume
+spec:
+  storageClassName: ""
+  capacity:
+    storage: 100G
+  accessModes:
+    - ReadWriteOnce
+  claimRef:
+    namespace: default
+    name: sc-volume-claim
+  csi:
+    driver: pd.csi.storage.gke.io
+    volumeHandle: projects/seacontact/zones/us-east4-a/disks/sc-disk
+    fsType: ext4
+---
+apiVersion: v1
+kind: PersistentVolumeClaim
+metadata:
+  namespace: default
+  name: sc-volume-claim
+spec:
+  storageClassName: ""
+  volumeName: sc-volume
+  accessModes:
+    - ReadWriteOnce
+  resources:
+    requests:
+      storage: 100G

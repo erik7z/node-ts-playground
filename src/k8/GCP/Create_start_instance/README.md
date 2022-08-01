@@ -55,7 +55,12 @@ gcloud compute ssh --project=PROJECT_ID --zone=ZONE VM_NAME
 gcloud compute ssh sc-util
 ```
 
-## [Stop a VM](https://cloud.google.com/compute/docs/instances/stop-start-instance)
+## [Start/Stop a VM](https://cloud.google.com/compute/docs/instances/stop-start-instance)
 ```shell
+gcloud compute instances start sc-util
+
 gcloud compute instances stop sc-util
+
+gcloud compute instances delete sc-util
+
 ```

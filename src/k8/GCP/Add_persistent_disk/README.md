@@ -15,8 +15,8 @@ gcloud compute disks create sc-disk --size 100gb --type pd-ssd
 # list disks:
 gcloud compute disks list
 ```
-After you create the disk, attach it to any running or stopped instance
 
+After you create the disk, attach it to any running or stopped instance
 ```shell
 # instance & disk should be in same zone (?)
 gcloud compute instances attach-disk sc-util --disk sc-disk
@@ -25,6 +25,7 @@ gcloud compute instances attach-disk sc-util --disk sc-disk
 gcloud compute disks describe sc-util
 ```
 After you create and attach the new disk to a VM, you must format and mount the disk, so that the operating system can use the available storage space.
+
 
 ## Formatting and mounting a non-boot disk on a Linux VM
 
@@ -119,4 +120,50 @@ sudo umount /mnt/disks/sc_disk
 
 # detaching disk:
 gcloud compute instances detach-disk sc-util --disk sc-disk
+```
+
+
+
+## [Creating Regional persistent disks](https://cloud.google.com/kubernetes-engine/docs/how-to/persistent-volumes/regional-pd#regional_persistent_disks)
+
+```shell
+gcloud compute disks create sc-disk-neo4j \
+   --size 50Gi \
+   --type pd-ssd \
+   --region us-east4 \
+   --replica-zones us-east4-a,us-east4-b
+```
+
+Attach disk to instance & format. Disk and instance regions/zones should be mentioned.
+```shell
+# specify zone for instance and --disk-scope=regional for disk
+#gcloud compute instances attach-disk sc-util --disk sc-disk-neo4j --zone us-east4-b --disk-scope=regional
+gcloud compute instances attach-disk sc-util --disk sc-disk-neo4j --disk-scope=regional
+
+#gcloud compute instances detach-disk sc-util --disk sc-disk-neo4j --zone us-east4-b --disk-scope=regional
+gcloud compute instances detach-disk sc-util --disk sc-disk-neo4j --disk-scope=regional
+```
+
+Setup Storage, PersistentVolume & PersistentVolumeClaim
+```shell
+kubectl apply -f << EOF -
+kind: StorageClass
+apiVersion: storage.k8s.io/v1
+metadata:
+  name: regionalpd-storageclass
+provisioner: pd.csi.storage.gke.io
+parameters:
+  type: pd-ssd
+  fstype: ext4
+  replication-type: regional-pd
+reclaimPolicy: Retain
+volumeBindingMode: Immediate
+allowedTopologies:
+- matchLabelExpressions:
+  - key: topology.gke.io/zone
+    values:
+    - us-east4-b
+    - us-east4-c
+EOF
+
 ```
