@@ -71,7 +71,7 @@ spec:
 EOF
 
 # Find out the external IP address of the load balancer serving your application by running:
-kubectl get ingress basic-ingress # wait 5 minutes until address appear and ingress conneted to service
+kubectl get ingress basic-ingress # wait 5 minutes until address appear and ingress connected to service
 ```
 
 ## Configuring a static IP address
@@ -86,6 +86,7 @@ Make sure to clean up the static IP addresses you configured when you no longer 
 ```shell
 # Reserve a static external IP address named web-static-ip:
 gcloud compute addresses create web-static-ip --global
+gcloud compute addresses list 
 
 # Apply updated resource to the cluster: (basic-ingress-static.yaml)
 kubectl apply -f << EOF -
@@ -106,6 +107,7 @@ EOF
 
 # after few minutes check updated external IP address:
 kubectl get ingress basic-ingress
+
 ```
 
 ## Serving multiple applications on a load balancer

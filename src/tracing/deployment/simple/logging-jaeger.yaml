@@ -1,0 +1,43 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: jaeger-logging
+  labels:
+    env: development
+    tier: logging
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      project: api-jaeger
+  template:
+    metadata:
+      labels:
+        project: api-jaeger
+    spec:
+      containers:
+        - name: askseaman-client
+          image: jaegertracing/all-in-one:1.34
+          ports:
+            - containerPort: 16686
+              name: jaeger-ui
+            - containerPort: 14268
+              name: jaeger-api
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: jaeger
+  labels:
+    env: development
+spec:
+  selector:
+    project: api-jaeger
+  type: LoadBalancer
+  ports:
+    - name: jaeger-ui-16686
+      port: 80
+      targetPort: 16686
+    - name: jaeger-api-14268
+      port: 14268
+      targetPort: 14268
