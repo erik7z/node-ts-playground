@@ -1,14 +1,12 @@
 
-# VERSION 7.4+
+# VERSION 7.4
 
 - check that timestamp pipeline exists:
 ```elasticsearch
 GET _ingest/pipeline/set_timestamp
 ```
 
-
-- if not exists create new:
-    - creating timestamp pipeline:
+- create set_timestamp pipeline:
 ```elasticsearch
 PUT _ingest/pipeline/set_timestamp
 {
@@ -22,78 +20,119 @@ PUT _ingest/pipeline/set_timestamp
         }
     ]
 }
+# DELETE _ingest/pipeline/set_timestamp
 ```
 
-- check template existence
+- create save_to_daily pipeline:
 ```elasticsearch
-HEAD _template/transactions-flow-template
-```
-
-- creating index template:
-```elasticsearch
-PUT /_index_template/transactions-flow-template
+PUT _ingest/pipeline/save_to_daily
 {
-    "index_patterns": [ "transactions-flow*" ],
-    "default_pipeline": "set_timestamp",
-    "data_stream": { },
-    "priority": 500,
-    "template": {
-        "mappings": {
-            "properties": {
-                "@timestamp": {
-                    "type": "date_nanos"
-                },
-                "stan": {
-                    "type": "keyword"
-                },
-                "cata": {
-                    "type" : "text",
-                    "fields" : {
-                        "keyword" : {
-                            "type" : "keyword",
-                            "ignore_above" : 256
-                        }
-                    }
-                },
-                "rrf": {
-                    "type": "keyword"
-                },
-                "sirius_agr_id": {
-                    "type": "keyword"
-                },
-                "transaction_type": {
-                    "type": "keyword"
-                }
+    "description": "saves item to daily index",
+    "processors": [
+        {
+            "date_index_name": {
+                "field": "@timestamp",
+                "index_name_prefix": "transactions-flow-",
+                "date_rounding": "d",
+                "date_formats": [
+                    "yyyy-MM-dd'T'HH:mm:ss.SSSXX",
+                    "yyyy-MM-dd'T'HH:mm:ss.SSSSSS'Z'",
+                    "yyyy-MM-dd'T'HH:mm:ss.SSSSSSSSS'Z'"
+                ]
+            }
+        }
+    ]
+}
+
+# DELETE _ingest/pipeline/save_to_daily
+```
+
+- create add_date_and_save_to_daily pipeline:
+```elasticsearch
+PUT _ingest/pipeline/add_date_and_save_to_daily
+{
+    "description": "adds date and saves item to daily index",
+    "processors": [
+        {
+            "pipeline": {
+                "name": "set_timestamp"
             }
         },
-        "settings": {
-            "sort.field": [ "@timestamp"],
-            "sort.order": [ "desc"]
+        {
+            "pipeline": {
+                "name": "save_to_daily"
+            }
         }
-    }
+    ]
 }
+
+# DELETE _ingest/pipeline/add_date_and_save_to_daily
 ```
 
-- adding default pipeline to transactions-flow index
-
+- check and create transactions-flow-template
 ```elasticsearch
-PUT /transactions-flow/_settings
+GET _template/transactions-flow-template
+
+PUT _template/transactions-flow-template
 {
+    "index_patterns": [
+        "transactions-flow*"
+    ],
     "settings": {
-        "default_pipeline": "set_timestamp"
+        "index": {
+            "default_pipeline": "add_date_and_save_to_daily",
+            "codec": "best_compression",
+            "refresh_interval": "30s"
+        },
+        "sort": {
+            "field": [
+                "@timestamp"
+            ],
+            "order": [
+                "desc"
+            ]
+        }
+    },
+    "mappings": {
+        "properties": {
+            "@timestamp": {
+                "type": "date_nanos"
+            },
+            "stan": {
+                "type": "keyword"
+            },
+            "card_id": {
+                "type": "keyword"
+            },
+            "cata": {
+                "type": "text",
+                "fields": {
+                    "keyword": {
+                        "type": "keyword",
+                        "ignore_above": 256
+                    }
+                }
+            },
+            "rrf": {
+                "type": "keyword"
+            },
+            "sirius_agr_id": {
+                "type": "keyword"
+            },
+            "transaction_type": {
+                "type": "keyword"
+            }
+        }
+    },
+    "aliases": {
+        "transactions-flow": {}
     }
 }
+
+#DELETE _template/transactions-flow-template
 ```
 
-
-- creating data stream: (not sure if exist in version 7.2)
-```elasticsearch
-PUT /_data_stream/transactions-flow
-```
-
-
-
-- reindexing old data to new index using pipeline:
+- reindex old data:
 ```elasticsearch
 POST _reindex
 {
@@ -102,10 +141,84 @@ POST _reindex
     },
     "dest": {
         "index": "transactions-flow",
-        "pipeline": "set_timestamp",
         "op_type": "create"
     }
 }
 
+#DELETE /transactions-flow*
+```
+
+## Other useful commands:
+
+```elasticsearch
+# settings
+GET /transactions-flow/_settings
+
+# mapping
+GET /transactions-flow/_mapping
+
+# create alias
+PUT transactions-flow
+{
+    "aliases": {
+        "transactions-flow": {
+            "is_write_index": true
+        }
+    }
+}
+
+# add document to index
+POST transactions-flow/_doc
+{
+    "stan": "999999999",
+    "transaction_type": "FX",
+    "rrf": "027795182134",
+    "cata": "PUMB ONLINE            0442907290     UA",
+    "sirius_agr_id": "212",
+    "card_id": "015844443598"
+}
+
+# search in index
+GET /transactions-flow/_search
+{
+    "from": 0,
+    "size": 20,
+    "query": {
+        "term": {
+            "stan": "018072551268"
+        }
+    }
+}
+```
+
+- setup index rollover policies:
+```elasticsearch
+#GET _ilm/policy/transactions_flow_policy
+#
+#PUT _ilm/policy/transactions_flow_policy
+#{
+#  "policy": {
+#    "phases": {
+#      "hot": {
+#        "actions": {
+#          "rollover": {
+#            "max_age": "30s"
+#          },
+#          "set_priority": {
+#            "priority": 100
+#          }
+#        }
+#      }
+#    }
+#  }
+#}
+
+#GET transactions-flow-*/_ilm/explain
+
+
+# rollover index
+#POST transactions-flow/_rollover
+
+#DELETE _ilm/policy/transactions_flow_policy
 ```
 

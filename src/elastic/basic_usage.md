@@ -25,7 +25,7 @@ curl 'localhost:9200/_cat/indices?v&pretty'
 
 > запись данных
 ```sh
-curl -XPUT 'http://localhost:9200/app/data?pretty ' -H 'Content-Type: application/json'  -d  '
+curl -XPUT 'http://localhost:9200/app/data?pretty' -H 'Content-Type: application/json'  -d  '
 {
 "name":"Ivan",
 "age" :"18",
@@ -134,3 +134,51 @@ curl -XGET 'http://localhost:9200/shakespeare/doc/_search?pretty ' -H 'Content-T
 ```
 
 > ОПЕРАТОРЫ AND И OR ДЛЯ ПОИСКА
+
+
+
+
+### OTHER COMMANDS:
+
+- watch reindex progress
+```shell
+curl -XGET 'localhost:9203/_tasks?actions=*reindex&detailed&timeout=10s&pretty' -H 'Content-Type: application/json'
+
+```
+
+```shell
+curl -X POST "localhost:9203/transactions-flow/_close?pretty"
+curl -X POST "localhost:9203/transactions-flow/_open?pretty"
+
+curl -XPUT localhost:9203/transactions-flow/_settings -H 'Content-Type: application/json' -d '
+        {
+          "settings": {
+            "index.blocks.write": "true"
+          }
+        }
+        '
+        
+curl -XPOST localhost:9203/transactions-flow/_clone/transactions-flow-banana -H 'Content-Type: application/json' -d '
+        {
+          "settings": {
+            "index.blocks.write": null
+          }
+        }
+        '
+
+curl -XDELETE 'http://localhost:9203/transactions-flow?pretty'
+
+curl -XDELETE 'http://localhost:9203/_template/transactions-flow-template-v1?pretty' -H 'Content-Type: application/json'
+
+curl -X DELETE "localhost:9203/transactions-flow/_alias/transactions-flow?pretty"
+
+curl -XGET 'localhost:9203/_tasks?actions=*reindex&detailed&timeout=10s&pretty' -H 'Content-Type: application/json'
+
+curl -X POST "localhost:9203/_tasks/[АЙДИ ОПЕРАЦИИ]/_cancel?pretty"
+
+
+curl -XPUT 'localhost:9203/transactions-flow*/_settings?pretty' -H 'Content-Type: application/json'  -d '{ "index" : { "refresh_interval" : "1s" } }'
+
+curl -XGET 'localhost:9203/transactions-flow*/_settings?pretty' -H 'Content-Type: application/json' 
+
+```
