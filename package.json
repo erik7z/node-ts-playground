@@ -2,10 +2,9 @@
   "name": "node-ts-playground",
   "version": "1.0.0",
   "description": "",
-  "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
     "start:dev": "nodemon",
+    "start:tracer": "ts-node ./src/tracing/tutorial-0/index.ts",
     "lint": "eslint . --ext .ts"
   },
   "keywords": [],
@@ -22,6 +21,8 @@
     "typescript": "^4.7.2"
   },
   "dependencies": {
+    "@types/jaeger-client": "^3.18.3",
+    "jaeger-client": "^3.19.0",
     "semver": "^7.3.7"
   }
 }
