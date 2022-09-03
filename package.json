@@ -5,6 +5,7 @@
   "scripts": {
     "start:dev": "nodemon",
     "start:tracer": "ts-node ./src/tracing/tutorial-0/index.ts",
+    "start:decorator": "ts-node ./src/decorators/03.ts",
     "lint": "eslint . --ext .ts"
   },
   "keywords": [],

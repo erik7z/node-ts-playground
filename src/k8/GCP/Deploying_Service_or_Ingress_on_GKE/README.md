@@ -90,7 +90,6 @@ kubectl get ingress
 We can also peak at corresponding http proxy that Google Cloud provisions:
 ```shell
 gcloud compute forwarding-rules list \
-  --filter description~hello-gke-ing \
   --format \
   "table[box](name,IPAddress,target.segment(-2):label=TARGET_TYPE)"
 ```
