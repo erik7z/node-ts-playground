@@ -102,7 +102,7 @@ EOF
 - Create cronjob specification itself:
 ```shell
 kubectl apply -f << EOF -
-apiVersion: batch/v1beta1
+apiVersion: batch/v1
 kind: CronJob
 metadata:
   name: deployment-restart
@@ -132,7 +132,7 @@ EOF
 
 - Here is the full yaml file with comments:
 ```yaml
-apiVersion: batch/v1beta1
+apiVersion: batch/v1
 kind: CronJob
 metadata:
   name: deployment-restart
