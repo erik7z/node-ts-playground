@@ -138,8 +138,21 @@ published package. We don’t want the source code, only the build-files!
 Whitelist the files /folders you want to publish. This can be done by adding the files property in package.json:
 
 ```package.json
-"files": ["lib/**/*"]
+"files": ["lib"]
 ```
+
+Create .npmignore file [read more](https://stackoverflow.com/questions/24942161/does-npm-ignore-files-listed-in-gitignore)
+In your .gitignore file, add the file/dir you wish to exclude **/build for example and in your .npmignore file
+> make sure you specify the same file/dir but with the ! prefix so for the build example you would include !/build
+```.gitignore
+lib/
+```
+
+```.npmignore
+!lib/
+```
+
+>>> FINALLY all above npmignore/gitignore not working -> just remove all needed files from .gitignore 
 
 ### Setup Testing with Jest
 
