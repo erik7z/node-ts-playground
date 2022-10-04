@@ -37,7 +37,7 @@ curl -XPUT 'http://localhost:9203/_ingest/pipeline/set_timestamp?pretty' -H 'Con
 
 4. create new pipeline 'save_to_daily_v1':
 ```sh
-curl -XPUT 'http://localhost:9203/_ingest/pipeline/save_to_daily_v1?pretty' -H 'Content-Type: application/json' -d '
+curl -XPUT 'http://localhost:9202/_ingest/pipeline/save_to_daily_v1?pretty' -H 'Content-Type: application/json' -d '
 {
     "description": "saves item to daily index",
     "processors": [
@@ -65,7 +65,7 @@ curl -XPUT 'http://localhost:9203/_ingest/pipeline/save_to_daily_v1?pretty' -H '
 
 5. create pipeline 'add_date_and_save_to_daily_v1':
 ```sh
-curl -XPUT 'http://localhost:9203/_ingest/pipeline/add_date_and_save_to_daily_v1?pretty' -H 'Content-Type: application/json' -d '
+curl -XPUT 'http://localhost:9202/_ingest/pipeline/add_date_and_save_to_daily_v1?pretty' -H 'Content-Type: application/json' -d '
 {
     "description": "adds date and saves item to daily index",
     "processors": [
