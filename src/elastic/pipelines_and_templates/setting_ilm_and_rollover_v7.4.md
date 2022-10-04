@@ -2,6 +2,7 @@
 ### Create ILM Policy
 > Sources:
 >- [ILM (index lifecycle management)](https://www.elastic.co/guide/en/elasticsearch/reference/7.4/getting-started-index-lifecycle-management.html)
+>- [Policies Rollover (using policies rollover)](https://www.elastic.co/guide/en/elasticsearch/reference/7.4/using-policies-rollover.html)
 ```shell
 curl -X GET "localhost:9201/_ilm/policy/transactions_flow_policy?pretty"
 
@@ -203,3 +204,8 @@ curl -X GET "http://localhost:9202/transactions-flow-v1-write/_search?pretty=tru
 # ILM status
 curl -XGET 'http://localhost:9201/transactions-flow-v1-write/_ilm/explain?pretty'
 ```
+
+
+### Other issues:
+- [ilm-not-deleting-indices](https://stackoverflow.com/questions/59859306/elasticsearch-ilm-not-deleting-indices)
+- 
