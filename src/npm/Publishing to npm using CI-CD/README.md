@@ -38,7 +38,7 @@ npm token list
 - run following command to use token in pipeline for scoper repos:
 ```shell
 npm config set @gemlightbox:registry https://registry.npmjs.com
-npm config set //registry.npmjs.com/:_authToken=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
+npm config set //registry.npmjs.com/:_authToken=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
 ```
 
 - or set above in .npmrc file for repo
