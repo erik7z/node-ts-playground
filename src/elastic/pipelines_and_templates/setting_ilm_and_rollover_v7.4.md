@@ -4,9 +4,9 @@
 >- [ILM (index lifecycle management)](https://www.elastic.co/guide/en/elasticsearch/reference/7.4/getting-started-index-lifecycle-management.html)
 >- [Policies Rollover (using policies rollover)](https://www.elastic.co/guide/en/elasticsearch/reference/7.4/using-policies-rollover.html)
 ```shell
-curl -X GET "localhost:9201/_ilm/policy/transactions_flow_policy?pretty"
+curl -X GET "localhost:9200/_ilm/policy/transactions_flow_policy?pretty"
 
-curl -X PUT "localhost:9202/_ilm/policy/transactions_flow_policy?pretty" -H 'Content-Type: application/json' -d'
+curl -X PUT "localhost:9200/_ilm/policy/transactions_flow_policy?pretty" -H 'Content-Type: application/json' -d'
 {
   "policy": {
     "phases": {
@@ -36,7 +36,7 @@ curl -X PUT "localhost:9202/_ilm/policy/transactions_flow_policy?pretty" -H 'Con
 > - [date math](https://www.elastic.co/guide/en/elasticsearch/reference/7.4/date-math-index-names.html)
 
 ```shell
-curl -X PUT "localhost:9202/%3Ctransactions-flow-v1-%7Bnow%2Fd%7Byyyy-MM-dd%7D%7D-000001%3E?pretty" -H 'Content-Type: application/json' -d'
+curl -X PUT "localhost:9200/%3Ctransactions-flow-v1-%7Bnow%2Fd%7Byyyy-MM-dd%7D%7D-000001%3E?pretty" -H 'Content-Type: application/json' -d'
 {
   "aliases": {
     "transactions-flow-v1-write": {
@@ -59,7 +59,7 @@ curl -X PUT "localhost:9202/%3Ctransactions-flow-v1-%7Bnow%2Fd%7Byyyy-MM-dd%7D%7
 > Sources:
 >- [Lifecycle Management with Templates](https://medium.com/@freiit/elasticsearch-index-lifecycle-management-ilm-from-ground-up-cf5e8d80d31d)
 ```shell
-curl -XPUT 'http://localhost:9202/_template/transactions-flow-template-v1?pretty' -H 'Content-Type: application/json' -d '
+curl -XPUT 'http://localhost:9200/_template/transactions-flow-template-v1?pretty' -H 'Content-Type: application/json' -d '
 {
     "index_patterns": [
       "transactions-flow-v1*"
@@ -128,7 +128,7 @@ curl -XPUT 'http://localhost:9202/_template/transactions-flow-template-v1?pretty
 > - [Ingest node](https://www.elastic.co/guide/en/elasticsearch/reference/7.4/ingest.html)
 
 ```shell
-curl -XPUT 'http://localhost:9202/_ingest/pipeline/reroute_to_write_alias?pretty' -H 'Content-Type: application/json' -d '
+curl -XPUT 'http://localhost:9200/_ingest/pipeline/reroute_to_write_alias?pretty' -H 'Content-Type: application/json' -d '
 {
     "description": "changes destination (re-route all records to <transactions-flow-v1-write> alias/index",
     "processors": [
@@ -142,7 +142,7 @@ curl -XPUT 'http://localhost:9202/_ingest/pipeline/reroute_to_write_alias?pretty
 }
 '
 
-curl -XPUT 'http://localhost:9202/_ingest/pipeline/add_date_and_save_to_daily_v1?pretty' -H 'Content-Type: application/json' -d '
+curl -XPUT 'http://localhost:9200/_ingest/pipeline/add_date_and_save_to_daily_v1?pretty' -H 'Content-Type: application/json' -d '
 {
     "description": "adds date and saves to daily index",
     "processors": [
@@ -165,7 +165,7 @@ curl -XPUT 'http://localhost:9202/_ingest/pipeline/add_date_and_save_to_daily_v1
 
 ### Add test records to old and new alias and search for them and other old records:
 ```shell
-curl -XPOST 'localhost:9201/transactions-flow/_doc' -H 'Content-Type: application/json' -d '
+curl -XPOST 'localhost:9200/transactions-flow/_doc' -H 'Content-Type: application/json' -d '
 {
     "stan": "1111111111",
     "transaction_type": "TEST_TYPE",
@@ -176,7 +176,7 @@ curl -XPOST 'localhost:9201/transactions-flow/_doc' -H 'Content-Type: applicatio
 }
 '
 
-curl -XPOST 'localhost:9201/transactions-flow-v1-write/_doc' -H 'Content-Type: application/json' -d '
+curl -XPOST 'localhost:9200/transactions-flow-v1-write/_doc' -H 'Content-Type: application/json' -d '
 {
     "stan": "2222222222",
     "transaction_type": "TEST_TYPE",
@@ -187,22 +187,22 @@ curl -XPOST 'localhost:9201/transactions-flow-v1-write/_doc' -H 'Content-Type: a
 }
 '
 
-curl -XGET 'localhost:9202/transactions-flow/_search?pretty' -H 'Content-Type: application/json' -d ' { "query": { "term": { "stan": "1111111111" } } } '
-curl -XGET 'localhost:9202/transactions-flow/_search?pretty' -H 'Content-Type: application/json' -d ' { "query": { "term": { "stan": "2222222222" } } } '
-curl -XGET 'localhost:9202/transactions-flow/_search?pretty' -H 'Content-Type: application/json' -d ' { "query": { "term": { "stan": "017863845963" } } } '
+curl -XGET 'localhost:9200/transactions-flow/_search?pretty' -H 'Content-Type: application/json' -d ' { "query": { "term": { "stan": "1111111111" } } } '
+curl -XGET 'localhost:9200/transactions-flow/_search?pretty' -H 'Content-Type: application/json' -d ' { "query": { "term": { "stan": "2222222222" } } } '
+curl -XGET 'localhost:9200/transactions-flow/_search?pretty' -H 'Content-Type: application/json' -d ' { "query": { "term": { "stan": "017863845963" } } } '
 
 ```
 
 - Check status:
 ```shell
 # write index details
-curl -X GET "localhost:9201/transactions-flow-v1-write?pretty"
+curl -X GET "localhost:9200/transactions-flow-v1-write?pretty"
 
 # records in write index
-curl -X GET "http://localhost:9202/transactions-flow-v1-write/_search?pretty=true&q=*:*&size=0"
+curl -X GET "http://localhost:9200/transactions-flow-v1-write/_search?pretty=true&q=*:*&size=0"
 
 # ILM status
-curl -XGET 'http://localhost:9201/transactions-flow-v1-write/_ilm/explain?pretty'
+curl -XGET 'http://localhost:9200/transactions-flow-v1-write/_ilm/explain?pretty'
 ```
 
 
