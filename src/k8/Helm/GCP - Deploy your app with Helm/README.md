@@ -259,7 +259,7 @@ gcloud auth login
 gcloud config set project seacontact
 
 # enable gcloud container services 
-gcloud services enable container.googleapis.com
+gcloud services disable container.googleapis.com
 
 # configure docker to access gcloud
 gcloud auth configure-docker
@@ -271,8 +271,19 @@ docker push gcr.io/seacontact/my-app
 # run helm deployment:
 helm install my-helm-app ./helm -f ./helm/values.yaml
 #helm install ./helm --generate-name -f ./helm/values.yaml # or generate some name
+```
 
+### Cleanup
+
+```shell
 # to delete resources:
 helm list
-helm uninstall chart-1665902242 # get chart name from helm list
+helm uninstall my-helm-app # by chart name 
+#helm uninstall chart-1665902242 # or chart name from helm list
+
+
+# delete images from container registry:
+gcloud container images list
+gcloud container images delete gcr.io/seacontact/my-app
+gcloud services disable container.googleapis.com --force
 ```
