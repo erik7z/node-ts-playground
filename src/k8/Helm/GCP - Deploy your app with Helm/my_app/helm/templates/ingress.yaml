@@ -2,7 +2,7 @@
 apiVersion: networking.k8s.io/v1
 kind: Ingress
 metadata:
-  name: hello-gke-ing
+  name: {{ .Chart.Name }}
   annotations:
     kubernetes.io/ingress.class: gce
 spec:
@@ -13,6 +13,6 @@ spec:
             pathType: Prefix
             backend:
               service:
-                name: hello-gke-ing
+                name: {{ .Chart.Name  }}
                 port:
-                  number: 80
+                  name: http
