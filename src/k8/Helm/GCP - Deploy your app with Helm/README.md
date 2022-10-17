@@ -226,7 +226,7 @@ the helm `create <my_chart_name>` command automatically creates a sample chart w
 
 ## Deploy the Helm chart
 
-To create and update resources on the cluster, Helm needs a special system pod named Tiller. 
+To create and update resources on the cluster, Helm needs a special system pod named Tiller.  (only in Helm V2)
 ```shell
 # To install and configure Tiller on the cluster, create the following tiller.yaml file:
 echo '---
