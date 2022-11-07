@@ -22,7 +22,7 @@ If your repository has restricted branches, you will need to create a bot user f
 -  [Adding eslint for typescript](https://khalilstemmler.com/blogs/typescript/eslint-for-typescript/)
 
 ### --
-
+email=tara@malakandiamond.com
 ## [Pre-commits](https://www.npmjs.com/package/pre-commit)
 
 - Add pre-commit hooks to run lint before commit: 
