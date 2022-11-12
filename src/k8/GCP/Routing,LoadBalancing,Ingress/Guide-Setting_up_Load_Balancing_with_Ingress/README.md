@@ -85,7 +85,7 @@ Make sure to clean up the static IP addresses you configured when you no longer 
 
 ```shell
 # Reserve a static external IP address named web-static-ip:
-gcloud compute addresses create web-static-ip --global
+gcloud compute addresses create jaeger-static-ip-dev --global
 gcloud compute addresses list 
 
 # Apply updated resource to the cluster: (basic-ingress-static.yaml)
