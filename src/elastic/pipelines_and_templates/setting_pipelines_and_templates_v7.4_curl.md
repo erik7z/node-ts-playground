@@ -37,7 +37,7 @@ curl -XPUT 'http://localhost:9203/_ingest/pipeline/set_timestamp?pretty' -H 'Con
 
 4. create new pipeline 'save_to_daily_v1':
 ```sh
-curl -XPUT 'http://localhost:9202/_ingest/pipeline/save_to_daily_v1?pretty' -H 'Content-Type: application/json' -d '
+curl -XPUT 'http://localhost:9203/_ingest/pipeline/save_to_daily_v1?pretty' -H 'Content-Type: application/json' -d '
 {
     "description": "saves item to daily index",
     "processors": [
@@ -65,7 +65,7 @@ curl -XPUT 'http://localhost:9202/_ingest/pipeline/save_to_daily_v1?pretty' -H '
 
 5. create pipeline 'add_date_and_save_to_daily_v1':
 ```sh
-curl -XPUT 'http://localhost:9202/_ingest/pipeline/add_date_and_save_to_daily_v1?pretty' -H 'Content-Type: application/json' -d '
+curl -XPUT 'http://localhost:9203/_ingest/pipeline/add_date_and_save_to_daily_v1?pretty' -H 'Content-Type: application/json' -d '
 {
     "description": "adds date and saves item to daily index",
     "processors": [
@@ -86,7 +86,7 @@ curl -XPUT 'http://localhost:9202/_ingest/pipeline/add_date_and_save_to_daily_v1
 
 6. checking "transactions-flow-v0", "transactions-flow-v1*" indexes existence
 ```sh
-curl 'localhost:9203/_cat/indices/transactions*?pretty'
+curl 'localhost:9201/_cat/indices/transactions*?pretty'
 ```
 
 6.1 delete transactions-flow-v1* indexes if exists
@@ -97,7 +97,7 @@ curl -XDELETE 'http://localhost:9203/transactions-flow-v1*?pretty'
 
 7. reindex data from 'transactions' to 'transactions-flow-v0':
 ```sh
-curl -XPOST 'http://localhost:9203/_reindex?pretty' -H 'Content-Type: application/json' -d '
+curl -XPOST 'http://localhost:9201/_reindex?pretty' -H 'Content-Type: application/json' -d '
 {
     "source": {
       "index": "transactions"
