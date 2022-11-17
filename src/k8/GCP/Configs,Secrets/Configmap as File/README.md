@@ -3,11 +3,11 @@
 ```shell
 # Create configMap as .env file:
 
-kubectl apply -f  << EOF -
+kubectl delete -f  << EOF -
 apiVersion: v1
 kind: ConfigMap
 metadata:
-  name: env
+  name: configmap-env
 data:
   .env: |
     key=value
@@ -15,7 +15,7 @@ EOF
 
 # Use it in the pod:
 
-kubectl apply -f << EOF -
+kubectl delete -f << EOF -
 apiVersion: v1
 kind: Pod
 metadata:
@@ -23,10 +23,6 @@ metadata:
   labels:
     app: busybox
 spec:
-  volumes:
-  - name: env
-    configMap:
-      name: env
   containers:
   - name: busybox
     image: busybox
@@ -35,7 +31,11 @@ spec:
     - -c
     - while :; do cat /configuration/.env; sleep 1; done
     volumeMounts:
-    - name: env
+    - name: configmap-env-volume
       mountPath: /configuration # update this path to the path your app expects
+  volumes:
+    - name: configmap-env-volume
+      configMap:
+        name: configmap-env
 EOF
 ```
