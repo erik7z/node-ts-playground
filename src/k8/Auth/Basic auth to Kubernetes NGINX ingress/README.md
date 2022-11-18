@@ -3,10 +3,11 @@
 [Add basic authentication to Kubernetes Ingress nginx](https://blog.petehouston.com/add-basic-authentication-to-kubernetes-ingress-nginx/)
 [NGINX Ingress Controller on Google Kubernetes Engine](https://www.cloudskillsboost.google/focuses/872?parent=catalog)
 
+
 ## Deploy basic application:
 
 ```sh
-kubectl apply -f << EOF -
+kubectl delete -f << EOF -
 # Deployment:
 ---
 apiVersion: apps/v1
@@ -132,3 +133,5 @@ spec:
                 number: 8080
 EOF
 ```
+> Above method adds password request for only 1 user.
+> ### Auth for multiple users? see 'Alternative Secret Form' in :[Basic Authentication to a Kubernetes NGINX Ingress](https://www.howtogeek.com/devops/how-to-add-http-basic-authentication-to-a-kubernetes-nginx-ingress/)
