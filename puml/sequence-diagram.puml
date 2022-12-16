@@ -1,0 +1,68 @@
+# [Диаграмма последовательности](https://plantuml.com/ru/sequence-diagram)
+
+Последовательность -> используется для передачи сообщения между двумя участниками.
+Участники не обязательно должны быть явно объявлены.
+Чтобы иметь пунктирную стрелку, вы используете -->
+
+@startuml
+Alice -> Bob: Authentication Request
+Bob --> Alice: Authentication Response
+
+Alice -> Bob: Another authentication Request
+Alice <-- Bob: Another authentication Response
+@enduml
+
+
+## Объявление участников
+При использовании ключевого слова participant возможно получить больший контроль над отображением участников.
+Порядок перечисления участников задаёт также пороядок отображения участников по умолчанию.
+Использование других ключевых слов (отличных от participant) позволяет изменить форму представления (отображения) участника:
+
+@startuml
+participant Participant as Foo
+actor       Actor       as Foo1
+boundary    Boundary    as Foo2
+control     Control     as Foo3
+entity      Entity      as Foo4
+database    Database    as Foo5
+collections Collections as Foo6
+queue       Queue       as Foo7
+Foo -> Foo1 : To actor
+Foo -> Foo2 : To boundary
+Foo -> Foo3 : To control
+Foo -> Foo4 : To entity
+Foo -> Foo5 : To database
+Foo -> Foo6 : To collections
+Foo -> Foo7 : To queue
+@enduml
+
+Возможно переименовать участника используя ключевое слово as.
+Также возможно изменить цвет фона участника.
+
+@startuml
+actor Bob #red
+' Единственная разница между actor
+' и participant - это разная форма отображения
+participant Alice
+participant "У меня очень\nдлинное имя" as L #99FF99
+/' Эта строчка будет обозначать тоже самое:
+   participant L as "У меня очень\nдлинное имя"  #99FF99
+  '/
+
+Alice->Bob: Authentication Request
+Bob->Alice: Authentication Response
+Bob->L: Log transaction
+@enduml
+
+## Сообщения к самому себе
+Участник может посылать сообщения сам себе.
+Также возможно создание многострочных сообщений, используя \n
+
+@startuml
+Alice -> Alice: Это сигнал к самому себе.\nТакже это является демонстрацией\nмногострочного \nтекста.
+@enduml
+
+@startuml
+Alice <- Alice: Это сигнал к самому себе.\nТакже это является демонстрацией\nмногострочного \nтекста.
+@enduml
+
