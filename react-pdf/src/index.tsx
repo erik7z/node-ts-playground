@@ -3,6 +3,7 @@ import { Page, Text, View, Document, StyleSheet, Image } from "@react-pdf/render
 import ReactPDF from "@react-pdf/renderer"
 import PRODUCTS from "./_assets/products.json"
 import _chunk from "lodash.chunk"
+import { IAttributes, ICustomParametersAttributes, IProductAttributes, TRowStyleType, TTableHeader } from "./types"
 
 const styles = StyleSheet.create({
   page: {
@@ -70,232 +71,6 @@ const styles = StyleSheet.create({
   }
 })
 
-// PRODUCTS TYPING --->>>
-export enum SYNC_STATUS {
-  started = "started",
-  in_progress = "in_progress",
-  reseted = "reseted",
-  pending = "pending",
-  syncing = "syncing",
-  completed = "completed",
-  canceled = "canceled",
-  aborting = "aborting",
-  error = "error",
-}
-
-export enum EMediaType {
-  image = "image",
-  video = "video",
-  video360 = "video360",
-  blink = "blink",
-}
-
-export enum ResourceTypes {
-  PRODUCT = "product",
-  MEDIA = "media",
-  MEDIA_COLLECTION = "media_collection",
-  CATALOG = "catalog",
-}
-
-export enum EAttributeTypes {
-  TEXT = "text",
-  NUMBER = "number",
-  SELECT = "select",
-  MULTISELECT = "multiselect",
-}
-
-export enum EAttributeKinds {
-  DEFAULT = "default",
-  CUSTOM = "custom",
-}
-
-export enum ESyncIntegrations {
-  rapnet = "rapnet",
-  shopify = "shopify",
-  chotaifook = "chotaifook",
-}
-
-export interface IFileTypes {
-  small?: string;
-  medium?: string;
-  compressed?: string;
-  original: string;
-  createdAt?: Date;
-  filename?: string;
-  interactive?: string;
-  preview?: string;
-  gif?: string;
-  size?: number;
-}
-
-export interface IMediaAttributes {
-  id?: number;
-  type?: EMediaType | string;
-  user_id?: number;
-  size?: number;
-  file?: IFileTypes;
-  arData?: IARData;
-  metaData?: IMetadata;
-  guid?: string;
-  products?: IProductAttributes[];
-  links?: ILinkAttributes;
-  remoteId?: string;
-  createdAt?: Date;
-  views?: number;
-  shares?: number;
-  whatsappClicks?: number;
-  tryMeOnClicks?: number;
-  count?: number;
-}
-
-export interface ILinkAttributes {
-  password?: string | null;
-  salt?: string | null;
-  resourceID: number;
-  id?: number;
-  resourceType: ResourceTypes;
-  uuid: string;
-  createdAt?: Date;
-}
-
-export interface IARData {
-  blinkFile?: IFileTypes;
-  cropFile?: IFileTypes;
-  arHeight?: number;
-  arWidth?: number;
-  arHeightUnit?: string;
-  arWidthUnit?: string;
-  productTypeId?: number;
-  productType?: string;
-}
-
-export interface IMetadata {
-  template?: {
-    positioning?: {
-      width: number,
-      height: number,
-      x: number,
-      y: number
-    }
-  }
-}
-
-export interface IMediaIds {
-  file: IFileTypes;
-  id: number;
-}
-
-export interface ICustomParametersAttributes {
-  id?: number;
-  product_id: number;
-  attribute_id: number;
-  order?: number;
-  value: any;
-}
-
-export interface IAttributes {
-  id?: number;
-  product_id?: number;
-  media_id?: number;
-  name?: string;
-  order_gallery?: number;
-  required?: boolean | null;
-  prefix?: string;
-  suffix?: string;
-  values?: | string[] | null | { [key: string]: string; };
-  user_id?: number;
-  type?: EAttributeTypes;
-  kind?: EAttributeKinds;
-  order?: number;
-  description?: string;
-  displayName?: string;
-  integratedTo?: ESyncIntegrations | null;
-  isHidden?: boolean | null;
-  isPublic?: boolean | null;
-  suffixValues?: | string[] | null | { [key: string]: string; };
-  createdAt?: Date;
-}
-
-export interface IProductAttributes {
-  user_id?: number;
-  title?: string;
-  currency?: string;
-  name?: string;
-  detailedTitle?: string;
-  description?: string;
-  caratWeight?: number;
-  quantity?: number;
-  link?: any;
-  links?: any;
-  creator?: string;
-  images?: IFileTypes[] | IMediaAttributes[] | string[];
-  parameters?: IAttributes & ICustomParametersAttributes[];
-  newImages?: IFileTypes[] | string[];
-  price?: number;
-  isHidden?: boolean;
-  media_ids?: IMediaIds[] | null;
-  discount?: number;
-  productType?: string;
-  stoneType?: string;
-  category?: string;
-  subcategory?: string;
-  sku?: number;
-  parameterIDS?: number[];
-  remoteId?: number | string;
-  lastSync?: string;
-  syncStatus?: SYNC_STATUS;
-  syncMessage?: {
-    type?: string;
-    shortMessage?: string,
-    detailedMessage?: string,
-    filename?: string,
-  };
-  views?: number;
-  shares?: number;
-  whatsappClicks?: number;
-  tryMeOnClicks?: number;
-  ARViewTime?: number;
-  shop_id?: number
-}
-
-// <<<---
-
-
-type TRowStyleType = "tableRowOdd" | "tableRowEven"
-
-type THeaderImage = {
-  type: "image"
-  key: "images"
-}
-
-type THeaderProp = {
-  type: "prop"
-  key: keyof IProductAttributes
-}
-
-type THeaderAttribute = {
-  type: "attribute"
-  key: "parameters"
-  attributeId: number
-}
-
-type THeaderQR = {
-  type: "qr"
-  key: "qrcode"
-}
-
-type TTableHeader = {
-  displayName: string,
-} & (THeaderProp | THeaderAttribute | THeaderImage | THeaderQR)
-
-type TExactTableHeaders = Readonly<Array<TTableHeader & {
-  key: typeof tableHeaders[number]["key"],
-}>>
-
-type TRowContent = IProductAttributes & {
-  [key in (typeof tableHeaders[number]["key"])]?: IProductAttributes[keyof IProductAttributes]
-}
-
 const tableHeaders: readonly TTableHeader[] = [
   { type: "image", key: "images", displayName: "Image" },
   { type: "prop", key: "title", displayName: "SKU" },
@@ -306,7 +81,16 @@ const tableHeaders: readonly TTableHeader[] = [
   { type: "qr", key: "qrcode", displayName: "QR" }
 ] as const
 
-const products = PRODUCTS as unknown as IProductAttributes[]
+type TExactTableHeaders = Readonly<Array<TTableHeader & {
+  key: typeof tableHeaders[number]["key"],
+}>>
+
+type TRowContent = IProductAttributes & {
+  [key in (typeof tableHeaders[number]["key"])]?: IProductAttributes[keyof IProductAttributes]
+}
+
+const productsList = PRODUCTS as unknown as IProductAttributes[]
+const MAX_PRODUCTS = 12;
 
 const TableRow = ({ styleKey, headers, rowContent }: { styleKey: TRowStyleType, headers: TExactTableHeaders, rowContent: TRowContent }) => {
   return (
@@ -351,7 +135,6 @@ const TableRow = ({ styleKey, headers, rowContent }: { styleKey: TRowStyleType, 
   )
 }
 
-
 const TableHeader = ({ headers }: { headers: TExactTableHeaders }) => (
   <View style={styles.tableRowHeader}>
     {headers.map((col, i) =>
@@ -383,20 +166,23 @@ const OnePage = ({ headers, products }: { headers: TExactTableHeaders, products:
   </Page>
 )
 
-
-const MyDocument = () => {
-
-  const pages = _chunk(products, 12)
-
+const MyDocument = ({products, headers}: {products: IProductAttributes[], headers: TExactTableHeaders}) => {
+  const pages = _chunk(products, MAX_PRODUCTS)
   return (
     <Document>
       {pages.map((pageProducts, i) =>
-        <OnePage key={`item-${i.toString()}`} headers={tableHeaders} products={pageProducts}/>
+        <OnePage key={`item-${i.toString()}`} headers={headers} products={pageProducts}/>
       )}
     </Document>
   )
 };
 
+export async function renderPdf (destSrc: string, products: IProductAttributes[], tableHeaders: TExactTableHeaders ) {
+  await ReactPDF.render(<MyDocument headers={tableHeaders} products={products}/>, destSrc)
+}
+
+
+// Generate example:
 (async () => {
-  await ReactPDF.render(<MyDocument/>, `tmp/example.pdf`)
+  await renderPdf(`tmp/example.pdf`, productsList, tableHeaders)
 })()
