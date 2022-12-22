@@ -1,0 +1,952 @@
+[
+  {
+    "_id": 121779,
+    "isHidden": true,
+    "currency": "USD",
+    "creator": null,
+    "caratWeight": null,
+    "quantity": 0,
+    "title": "1111111111111 111111111111111111111111111 111111111111111111111",
+    "discount": 0,
+    "stoneType": null,
+    "created": {
+      "_id": 2003,
+      "first_name": "Admin",
+      "last_name": "Admin surname",
+      "email": "admin@example.com",
+      "role": "admin"
+    },
+    "productType": null,
+    "description": null,
+    "detailedTitle": null,
+    "price": null,
+    "views": 0,
+    "link": {
+      "uuid": "fdff98b6-6b7a-4194-b98f-17e36576160c",
+      "id": 250394,
+      "isPrivate": false
+    },
+    "images": [
+      {
+        "id": 128178,
+        "file": {
+          "size": 1016423,
+          "small": "https://dev.static.cloud.picupmedia.com/gallery/2003/1653655392944-6ebb2717e06b842276ae-simonleeBRHLD4L1Hagunsplashsmall.jpeg",
+          "medium": "https://dev.static.cloud.picupmedia.com/gallery/2003/1653655392944-6ebb2717e06b842276ae-simonleeBRHLD4L1Hagunsplashmedium.jpeg",
+          "filename": "simon-lee-BRHLD4L1Hag-unsplash.jpg",
+          "original": "https://dev.static.cloud.picupmedia.com/gallery/2003/1653655392944-6ebb2717e06b842276ae-simonleeBRHLD4L1Hagunsplash.jpeg",
+          "createdAt": null
+        },
+        "type": "image",
+        "arData": null,
+        "size": 1016423
+      },
+      {
+        "id": 128180,
+        "file": {
+          "size": 149418,
+          "small": "https://dev.static.cloud.picupmedia.com/gallery/2003/1653655393104-78c968302c8c5478dada-shubhamdhage26PeYRqpBh8unsplashsmall.jpeg",
+          "medium": "https://dev.static.cloud.picupmedia.com/gallery/2003/1653655393104-78c968302c8c5478dada-shubhamdhage26PeYRqpBh8unsplashmedium.jpeg",
+          "filename": "shubham-dhage-26PeYRqpBh8-unsplash.jpg",
+          "original": "https://dev.static.cloud.picupmedia.com/gallery/2003/1653655393104-78c968302c8c5478dada-shubhamdhage26PeYRqpBh8unsplash.jpeg",
+          "createdAt": null
+        },
+        "type": "image",
+        "arData": null,
+        "size": 149418
+      },
+      {
+        "id": 128182,
+        "file": {
+          "size": 3003,
+          "small": "https://dev.static.cloud.picupmedia.com/gallery/2003/1653655393221-0d7967e42ea1b2314fef-angryimgsmall.png",
+          "medium": "https://dev.static.cloud.picupmedia.com/gallery/2003/1653655393221-0d7967e42ea1b2314fef-angryimgmedium.png",
+          "filename": "angryimg.png",
+          "original": "https://dev.static.cloud.picupmedia.com/gallery/2003/1653655393221-0d7967e42ea1b2314fef-angryimg.png",
+          "createdAt": null
+        },
+        "type": "image",
+        "arData": null,
+        "size": 3003
+      }
+    ],
+    "sumPrice": null,
+    "parameters": [
+      {
+        "id": 70598,
+        "user_id": 2003,
+        "name": "title",
+        "prefix": "",
+        "suffix": "",
+        "values": [],
+        "type": "text",
+        "kind": "default",
+        "order": 0,
+        "order_gallery": 3,
+        "description": "Unique product identifier",
+        "displayName": "SKU",
+        "integratedTo": null,
+        "isHidden": false,
+        "value": "111111111111111 111111111111111111111111 1111111111111111111111"
+      }
+    ],
+    "assignedToCatalogs": [
+      null
+    ]
+  },
+  {
+    "_id": 121649,
+    "isHidden": true,
+    "currency": "USD",
+    "creator": null,
+    "caratWeight": null,
+    "quantity": 0,
+    "title": "Test176",
+    "discount": 0,
+    "stoneType": null,
+    "created": {
+      "_id": 2003,
+      "first_name": "Admin",
+      "last_name": "Admin surname",
+      "email": "admin@example.com",
+      "role": "admin"
+    },
+    "productType": "Rings",
+    "description": null,
+    "detailedTitle": null,
+    "price": null,
+    "views": 4,
+    "link": {
+      "uuid": "1bda21f2-3bc9-487a-aad4-426ed0307c38",
+      "id": 249169,
+      "isPrivate": false
+    },
+    "images": [
+      {
+        "id": 128174,
+        "file": {
+          "size": 56906,
+          "small": "https://dev.static.cloud.picupmedia.com/gallery/2003/1653655355870-f3319b70df810d107c1b-1650354543784390f6ce03bf1c9575ec4setting_template_mainsmall.jpeg",
+          "medium": "https://dev.static.cloud.picupmedia.com/gallery/2003/1653655355870-f3319b70df810d107c1b-1650354543784390f6ce03bf1c9575ec4setting_template_mainmedium.jpeg",
+          "filename": "1650354543784-390f6ce03bf1c9575ec4-setting_template_main.jpeg",
+          "original": "https://dev.static.cloud.picupmedia.com/gallery/2003/1653655355870-f3319b70df810d107c1b-1650354543784390f6ce03bf1c9575ec4setting_template_main.jpeg",
+          "createdAt": null
+        },
+        "type": "image",
+        "arData": null,
+        "size": 56906
+      },
+      {
+        "id": 129859,
+        "file": {
+          "size": 105000,
+          "small": "https://dev.static.cloud.picupmedia.com/gallery/2003/1656674722672-0f0e60341efa2d880fff-blinkFilesmall.png",
+          "medium": "https://dev.static.cloud.picupmedia.com/gallery/2003/1656674722672-0f0e60341efa2d880fff-blinkFilemedium.png",
+          "filename": "blinkFile.png",
+          "original": "https://dev.static.cloud.picupmedia.com/gallery/2003/1656674722672-0f0e60341efa2d880fff-blinkFile.png",
+          "createdAt": null
+        },
+        "type": "blink",
+        "arData": {
+          "arWidth": "1.23",
+          "arHeight": "0.61",
+          "cropFile": {
+            "size": 2187176,
+            "small": "https://dev.static.cloud.picupmedia.com/gallery/2003/1656674722674-d88503936f6ced80755f-cropFilesmall.png",
+            "medium": "https://dev.static.cloud.picupmedia.com/gallery/2003/1656674722674-d88503936f6ced80755f-cropFilemedium.png",
+            "filename": "cropFile.png",
+            "original": "https://dev.static.cloud.picupmedia.com/gallery/2003/1656674722674-d88503936f6ced80755f-cropFile.png",
+            "createdAt": null
+          },
+          "blinkFile": {
+            "size": 105000,
+            "small": "https://dev.static.cloud.picupmedia.com/gallery/2003/1656674722672-0f0e60341efa2d880fff-blinkFilesmall.png",
+            "medium": "https://dev.static.cloud.picupmedia.com/gallery/2003/1656674722672-0f0e60341efa2d880fff-blinkFilemedium.png",
+            "filename": "blinkFile.png",
+            "original": "https://dev.static.cloud.picupmedia.com/gallery/2003/1656674722672-0f0e60341efa2d880fff-blinkFile.png",
+            "createdAt": null
+          },
+          "arWidthUnit": "inch",
+          "productType": "Rings",
+          "arHeightUnit": "inch",
+          "productTypeId": "5"
+        },
+        "size": 105000
+      }
+    ],
+    "sumPrice": null,
+    "parameters": [
+      {
+        "id": 70598,
+        "user_id": 2003,
+        "name": "title",
+        "prefix": "",
+        "suffix": "",
+        "values": [],
+        "type": "text",
+        "kind": "default",
+        "order": 0,
+        "order_gallery": 3,
+        "description": "Unique product identifier",
+        "displayName": "SKU",
+        "integratedTo": null,
+        "isHidden": false,
+        "value": "Test176"
+      },
+      {
+        "id": 89118,
+        "user_id": 2003,
+        "name": "productType",
+        "prefix": "",
+        "suffix": "",
+        "values": [
+          "7",
+          "Bracelets",
+          "Brooches",
+          "Diamonds",
+          "Earrings",
+          "Gemstones",
+          "Necklaces",
+          "Rings",
+          "Watches"
+        ],
+        "type": "select",
+        "kind": "default",
+        "order": 5,
+        "order_gallery": 8,
+        "description": "Type of product",
+        "displayName": "Product Type",
+        "integratedTo": null,
+        "isHidden": false,
+        "value": "Rings"
+      },
+      {
+        "id": 99315,
+        "user_id": 2003,
+        "name": "very new test attribute",
+        "prefix": "",
+        "suffix": "",
+        "values": [
+          "some val",
+          "another val"
+        ],
+        "type": "select",
+        "kind": "custom",
+        "order": 8,
+        "order_gallery": 8,
+        "description": null,
+        "displayName": "",
+        "integratedTo": null,
+        "isHidden": false,
+        "value": "some val"
+      }
+    ],
+    "assignedToCatalogs": [
+      null
+    ]
+  },
+  {
+    "_id": 121290,
+    "isHidden": true,
+    "currency": "USD",
+    "creator": null,
+    "caratWeight": null,
+    "quantity": 0,
+    "title": "MOC013B-21",
+    "discount": 0,
+    "stoneType": null,
+    "created": {
+      "_id": 2003,
+      "first_name": "Admin",
+      "last_name": "Admin surname",
+      "email": "admin@example.com",
+      "role": "admin"
+    },
+    "productType": null,
+    "description": "Purple Amethyst & Diamond Earrings Set in 14K Rose Gold - Prong Set 2.25 ct",
+    "detailedTitle": null,
+    "price": 1234,
+    "views": 0,
+    "link": {
+      "uuid": "92cb12d1-dc1b-4272-9a1b-806cbb270976",
+      "id": 248051,
+      "isPrivate": false
+    },
+    "images": [
+      {
+        "id": 129698,
+        "file": {
+          "size": 4571849,
+          "small": "https://dev.static.cloud.picupmedia.com/gallery/2003/1656595492336-c777d3a66cec61bd95d6-163110606459830f3306af1051dc5b962darkestsmall.jpeg",
+          "medium": "https://dev.static.cloud.picupmedia.com/gallery/2003/1656595492336-c777d3a66cec61bd95d6-163110606459830f3306af1051dc5b962darkestmedium.jpeg",
+          "filename": "1631106064598-30f3306af1051dc5b962-darkest.jpeg",
+          "original": "https://dev.static.cloud.picupmedia.com/gallery/2003/1656595492336-c777d3a66cec61bd95d6-163110606459830f3306af1051dc5b962darkest.jpeg",
+          "createdAt": null
+        },
+        "type": "image",
+        "arData": null,
+        "size": 4571849
+      }
+    ],
+    "sumPrice": 1234,
+    "parameters": [
+      {
+        "id": 30798,
+        "user_id": 2003,
+        "name": "price",
+        "prefix": "",
+        "suffix": "$ AUD",
+        "values": [],
+        "type": "number",
+        "kind": "default",
+        "order": 3,
+        "order_gallery": 5,
+        "description": "Product price",
+        "displayName": "Price",
+        "integratedTo": null,
+        "isHidden": false,
+        "value": "1234"
+      },
+      {
+        "id": 70598,
+        "user_id": 2003,
+        "name": "title",
+        "prefix": "",
+        "suffix": "",
+        "values": [],
+        "type": "text",
+        "kind": "default",
+        "order": 0,
+        "order_gallery": 3,
+        "description": "Unique product identifier",
+        "displayName": "SKU",
+        "integratedTo": null,
+        "isHidden": false,
+        "value": "MOC013B-21"
+      },
+      {
+        "id": 79858,
+        "user_id": 2003,
+        "name": "description",
+        "prefix": "",
+        "suffix": "",
+        "values": [],
+        "type": "text",
+        "kind": "default",
+        "order": 1,
+        "order_gallery": 2,
+        "description": "Detailed description of product",
+        "displayName": "Description",
+        "integratedTo": null,
+        "isHidden": false,
+        "value": "Purple Amethyst & Diamond Earrings Set in 14K Rose Gold - Prong Set 2.25 ct"
+      },
+      {
+        "id": 84488,
+        "user_id": 2003,
+        "name": "detailedTitle",
+        "prefix": "",
+        "suffix": "",
+        "values": [],
+        "type": "text",
+        "kind": "default",
+        "order": 6,
+        "order_gallery": 0,
+        "description": "Detailed title of product",
+        "displayName": "Title",
+        "integratedTo": null,
+        "isHidden": false,
+        "value": null
+      },
+      {
+        "id": 89118,
+        "user_id": 2003,
+        "name": "productType",
+        "prefix": "",
+        "suffix": "",
+        "values": [
+          "7",
+          "Bracelets",
+          "Brooches",
+          "Diamonds",
+          "Earrings",
+          "Gemstones",
+          "Necklaces",
+          "Rings",
+          "Watches"
+        ],
+        "type": "select",
+        "kind": "default",
+        "order": 5,
+        "order_gallery": 8,
+        "description": "Type of product",
+        "displayName": "Product Type",
+        "integratedTo": null,
+        "isHidden": false,
+        "value": null
+      },
+      {
+        "id": 93748,
+        "user_id": 2003,
+        "name": "quantity",
+        "prefix": "",
+        "suffix": "",
+        "values": [],
+        "type": "number",
+        "kind": "default",
+        "order": 2,
+        "order_gallery": 4,
+        "description": "Product quantity",
+        "displayName": "Quantity",
+        "integratedTo": null,
+        "isHidden": false,
+        "value": null
+      }
+    ],
+    "assignedToCatalogs": [
+      null
+    ]
+  },
+  {
+    "_id": 121087,
+    "isHidden": true,
+    "currency": "USD",
+    "creator": null,
+    "caratWeight": null,
+    "quantity": 0,
+    "title": "1233",
+    "discount": 0,
+    "stoneType": null,
+    "created": {
+      "_id": 2003,
+      "first_name": "Admin",
+      "last_name": "Admin surname",
+      "email": "admin@example.com",
+      "role": "admin"
+    },
+    "productType": null,
+    "description": "asdfasdf",
+    "detailedTitle": null,
+    "price": null,
+    "views": 21,
+    "link": {
+      "uuid": "974a6e83-b056-49ed-b208-6557dac624ec",
+      "id": 247807,
+      "isPrivate": false
+    },
+    "images": [
+      {
+        "id": 82883,
+        "file": {
+          "size": 4562747,
+          "small": "https://dev.static.cloud.picupmedia.com/gallery/2003/1631028602999-fe27b1304e89558fa69a-Darksmall.jpeg",
+          "medium": "https://dev.static.cloud.picupmedia.com/gallery/2003/1631028602999-fe27b1304e89558fa69a-Darkmedium.jpeg",
+          "filename": "Dark.jpg",
+          "original": "https://dev.static.cloud.picupmedia.com/gallery/2003/1631028602999-fe27b1304e89558fa69a-Dark.jpeg",
+          "createdAt": "2007-03-11T13:38:52"
+        },
+        "type": "image",
+        "arData": null,
+        "size": 4562747
+      },
+      {
+        "id": 128183,
+        "file": {
+          "size": 58058,
+          "small": "https://dev.static.cloud.picupmedia.com/gallery/2003/1653655393290-22b7a6b38eb9388e1200-pngsmall.png",
+          "medium": "https://dev.static.cloud.picupmedia.com/gallery/2003/1653655393290-22b7a6b38eb9388e1200-pngmedium.png",
+          "filename": "завантаження.png",
+          "original": "https://dev.static.cloud.picupmedia.com/gallery/2003/1653655393290-22b7a6b38eb9388e1200-png.png",
+          "createdAt": null
+        },
+        "type": "image",
+        "arData": null,
+        "size": 58058
+      }
+    ],
+    "sumPrice": null,
+    "parameters": [
+      {
+        "id": 30798,
+        "user_id": 2003,
+        "name": "price",
+        "prefix": "",
+        "suffix": "$ AUD",
+        "values": [],
+        "type": "number",
+        "kind": "default",
+        "order": 3,
+        "order_gallery": 5,
+        "description": "Product price",
+        "displayName": "Price",
+        "integratedTo": null,
+        "isHidden": false,
+        "value": null
+      },
+      {
+        "id": 70598,
+        "user_id": 2003,
+        "name": "title",
+        "prefix": "",
+        "suffix": "",
+        "values": [],
+        "type": "text",
+        "kind": "default",
+        "order": 0,
+        "order_gallery": 3,
+        "description": "Unique product identifier",
+        "displayName": "SKU",
+        "integratedTo": null,
+        "isHidden": false,
+        "value": "1233"
+      },
+      {
+        "id": 79858,
+        "user_id": 2003,
+        "name": "description",
+        "prefix": "",
+        "suffix": "",
+        "values": [],
+        "type": "text",
+        "kind": "default",
+        "order": 1,
+        "order_gallery": 2,
+        "description": "Detailed description of product",
+        "displayName": "Description",
+        "integratedTo": null,
+        "isHidden": false,
+        "value": "asdfasdf"
+      },
+      {
+        "id": 84488,
+        "user_id": 2003,
+        "name": "detailedTitle",
+        "prefix": "",
+        "suffix": "",
+        "values": [],
+        "type": "text",
+        "kind": "default",
+        "order": 6,
+        "order_gallery": 0,
+        "description": "Detailed title of product",
+        "displayName": "Title",
+        "integratedTo": null,
+        "isHidden": false,
+        "value": null
+      },
+      {
+        "id": 89118,
+        "user_id": 2003,
+        "name": "productType",
+        "prefix": "",
+        "suffix": "",
+        "values": [
+          "7",
+          "Bracelets",
+          "Brooches",
+          "Diamonds",
+          "Earrings",
+          "Gemstones",
+          "Necklaces",
+          "Rings",
+          "Watches"
+        ],
+        "type": "select",
+        "kind": "default",
+        "order": 5,
+        "order_gallery": 8,
+        "description": "Type of product",
+        "displayName": "Product Type",
+        "integratedTo": null,
+        "isHidden": false,
+        "value": null
+      },
+      {
+        "id": 93748,
+        "user_id": 2003,
+        "name": "quantity",
+        "prefix": "",
+        "suffix": "",
+        "values": [],
+        "type": "number",
+        "kind": "default",
+        "order": 2,
+        "order_gallery": 4,
+        "description": "Product quantity",
+        "displayName": "Quantity",
+        "integratedTo": null,
+        "isHidden": false,
+        "value": null
+      }
+    ],
+    "assignedToCatalogs": [
+      null
+    ]
+  },
+  {
+    "_id": 120238,
+    "isHidden": true,
+    "currency": null,
+    "creator": null,
+    "caratWeight": null,
+    "quantity": 0,
+    "title": "4bbu4b11",
+    "discount": 0,
+    "stoneType": null,
+    "created": {
+      "_id": 2003,
+      "first_name": "Admin",
+      "last_name": "Admin surname",
+      "email": "admin@example.com",
+      "role": "admin"
+    },
+    "productType": null,
+    "description": "Red Ruby & Diamond Pendant Necklace Set in 14K Rose Gold - Prong Set 1.24 ct /NK297R",
+    "detailedTitle": null,
+    "price": 111,
+    "views": 0,
+    "link": {
+      "uuid": "eefe8e2a-7121-4911-91fc-68a0919e92cf",
+      "id": 245936,
+      "isPrivate": false
+    },
+    "images": [
+      {
+        "id": 128181,
+        "file": {
+          "size": 1251,
+          "small": "https://dev.static.cloud.picupmedia.com/gallery/2003/1653655393223-f4e541ff634caed05677-photo_20220309_152245small.jpeg",
+          "medium": "https://dev.static.cloud.picupmedia.com/gallery/2003/1653655393223-f4e541ff634caed05677-photo_20220309_152245medium.jpeg",
+          "filename": "photo_2022-03-09_15-22-45.jpg",
+          "original": "https://dev.static.cloud.picupmedia.com/gallery/2003/1653655393223-f4e541ff634caed05677-photo_20220309_152245.jpeg",
+          "createdAt": null
+        },
+        "type": "image",
+        "arData": null,
+        "size": 1251
+      }
+    ],
+    "sumPrice": 111,
+    "parameters": [
+      {
+        "id": 30798,
+        "user_id": 2003,
+        "name": "price",
+        "prefix": "",
+        "suffix": "$ AUD",
+        "values": [],
+        "type": "number",
+        "kind": "default",
+        "order": 3,
+        "order_gallery": 5,
+        "description": "Product price",
+        "displayName": "Price",
+        "integratedTo": null,
+        "isHidden": false,
+        "value": "111"
+      },
+      {
+        "id": 70598,
+        "user_id": 2003,
+        "name": "title",
+        "prefix": "",
+        "suffix": "",
+        "values": [],
+        "type": "text",
+        "kind": "default",
+        "order": 0,
+        "order_gallery": 3,
+        "description": "Unique product identifier",
+        "displayName": "SKU",
+        "integratedTo": null,
+        "isHidden": false,
+        "value": "4bbu4b11"
+      },
+      {
+        "id": 79858,
+        "user_id": 2003,
+        "name": "description",
+        "prefix": "",
+        "suffix": "",
+        "values": [],
+        "type": "text",
+        "kind": "default",
+        "order": 1,
+        "order_gallery": 2,
+        "description": "Detailed description of product",
+        "displayName": "Description",
+        "integratedTo": null,
+        "isHidden": false,
+        "value": "Red Ruby & Diamond Pendant Necklace Set in 14K Rose Gold - Prong Set 1.24 ct /NK297R"
+      },
+      {
+        "id": 84488,
+        "user_id": 2003,
+        "name": "detailedTitle",
+        "prefix": "",
+        "suffix": "",
+        "values": [],
+        "type": "text",
+        "kind": "default",
+        "order": 6,
+        "order_gallery": 0,
+        "description": "Detailed title of product",
+        "displayName": "Title",
+        "integratedTo": null,
+        "isHidden": false,
+        "value": null
+      },
+      {
+        "id": 89118,
+        "user_id": 2003,
+        "name": "productType",
+        "prefix": "",
+        "suffix": "",
+        "values": [
+          "7",
+          "Bracelets",
+          "Brooches",
+          "Diamonds",
+          "Earrings",
+          "Gemstones",
+          "Necklaces",
+          "Rings",
+          "Watches"
+        ],
+        "type": "select",
+        "kind": "default",
+        "order": 5,
+        "order_gallery": 8,
+        "description": "Type of product",
+        "displayName": "Product Type",
+        "integratedTo": null,
+        "isHidden": false,
+        "value": null
+      },
+      {
+        "id": 93748,
+        "user_id": 2003,
+        "name": "quantity",
+        "prefix": "",
+        "suffix": "",
+        "values": [],
+        "type": "number",
+        "kind": "default",
+        "order": 2,
+        "order_gallery": 4,
+        "description": "Product quantity",
+        "displayName": "Quantity",
+        "integratedTo": null,
+        "isHidden": false,
+        "value": null
+      }
+    ],
+    "assignedToCatalogs": [
+      null
+    ]
+  },
+  {
+    "_id": 111245,
+    "isHidden": false,
+    "currency": null,
+    "creator": null,
+    "caratWeight": null,
+    "quantity": 0,
+    "title": "some sku",
+    "discount": 0,
+    "stoneType": null,
+    "created": {
+      "_id": 2003,
+      "first_name": "Admin",
+      "last_name": "Admin surname",
+      "email": "admin@example.com",
+      "role": "admin"
+    },
+    "productType": null,
+    "description": null,
+    "detailedTitle": "detailed title",
+    "price": null,
+    "views": 0,
+    "link": {
+      "uuid": "c35afe6b-0a26-4503-8cdc-d01dd18684be",
+      "id": 219133,
+      "isPrivate": false
+    },
+    "images": [
+      {
+        "id": 82880,
+        "file": {
+          "size": 340385,
+          "small": "https://dev.static.cloud.picupmedia.com/gallery/2003/1631027851728-7bb18b6952b33f562b38-w_ear1small.jpeg",
+          "medium": "https://dev.static.cloud.picupmedia.com/gallery/2003/1631027851728-7bb18b6952b33f562b38-w_ear1medium.jpeg",
+          "filename": "w_ear1.jpeg",
+          "original": "https://dev.static.cloud.picupmedia.com/gallery/2003/1631027851728-7bb18b6952b33f562b38-w_ear1.jpeg",
+          "createdAt": null
+        },
+        "type": "image",
+        "arData": null,
+        "size": 340385
+      },
+      {
+        "id": 87056,
+        "file": {
+          "size": 1335984,
+          "small": "https://dev.static.cloud.picupmedia.com/gallery/2003/1635436034222-dcf81cd3199feeb25ecf-3Darkestsmall.png",
+          "medium": "https://dev.static.cloud.picupmedia.com/gallery/2003/1635436034222-dcf81cd3199feeb25ecf-3Darkestmedium.png",
+          "filename": "3-Darkest.png",
+          "original": "https://dev.static.cloud.picupmedia.com/gallery/2003/1635436034222-dcf81cd3199feeb25ecf-3Darkest.png",
+          "createdAt": null
+        },
+        "type": "image",
+        "arData": null,
+        "size": 1335984
+      },
+      {
+        "id": 87063,
+        "file": {
+          "size": 8090778,
+          "small": "https://dev.static.cloud.picupmedia.com/gallery/2003/1635436495391-a57a3f5adf6b0f7453e1-3darkestsmall.png",
+          "medium": "https://dev.static.cloud.picupmedia.com/gallery/2003/1635436495391-a57a3f5adf6b0f7453e1-3darkestmedium.png",
+          "filename": "3-darkest.png",
+          "original": "https://dev.static.cloud.picupmedia.com/gallery/2003/1635436495391-a57a3f5adf6b0f7453e1-3darkest.png",
+          "createdAt": null
+        },
+        "type": "image",
+        "arData": null,
+        "size": 8090778
+      },
+      {
+        "id": 87058,
+        "file": {
+          "size": 1263213,
+          "small": "https://dev.static.cloud.picupmedia.com/gallery/2003/1635436034231-d8586d4832a18c87e81a-1Lightsmall.png",
+          "medium": "https://dev.static.cloud.picupmedia.com/gallery/2003/1635436034231-d8586d4832a18c87e81a-1Lightmedium.png",
+          "filename": "1-Light.png",
+          "original": "https://dev.static.cloud.picupmedia.com/gallery/2003/1635436034231-d8586d4832a18c87e81a-1Light.png",
+          "createdAt": null
+        },
+        "type": "image",
+        "arData": null,
+        "size": 1263213
+      }
+    ],
+    "sumPrice": null,
+    "parameters": [
+      {
+        "id": 30798,
+        "user_id": 2003,
+        "name": "price",
+        "prefix": "",
+        "suffix": "$ AUD",
+        "values": [],
+        "type": "number",
+        "kind": "default",
+        "order": 3,
+        "order_gallery": 5,
+        "description": "Product price",
+        "displayName": "Price",
+        "integratedTo": null,
+        "isHidden": false,
+        "value": null
+      },
+      {
+        "id": 70598,
+        "user_id": 2003,
+        "name": "title",
+        "prefix": "",
+        "suffix": "",
+        "values": [],
+        "type": "text",
+        "kind": "default",
+        "order": 0,
+        "order_gallery": 3,
+        "description": "Unique product identifier",
+        "displayName": "SKU",
+        "integratedTo": null,
+        "isHidden": false,
+        "value": "some sku"
+      },
+      {
+        "id": 79858,
+        "user_id": 2003,
+        "name": "description",
+        "prefix": "",
+        "suffix": "",
+        "values": [],
+        "type": "text",
+        "kind": "default",
+        "order": 1,
+        "order_gallery": 2,
+        "description": "Detailed description of product",
+        "displayName": "Description",
+        "integratedTo": null,
+        "isHidden": false,
+        "value": null
+      },
+      {
+        "id": 84488,
+        "user_id": 2003,
+        "name": "detailedTitle",
+        "prefix": "",
+        "suffix": "",
+        "values": [],
+        "type": "text",
+        "kind": "default",
+        "order": 6,
+        "order_gallery": 0,
+        "description": "Detailed title of product",
+        "displayName": "Title",
+        "integratedTo": null,
+        "isHidden": false,
+        "value": "detailed title"
+      },
+      {
+        "id": 89118,
+        "user_id": 2003,
+        "name": "productType",
+        "prefix": "",
+        "suffix": "",
+        "values": [
+          "7",
+          "Bracelets",
+          "Brooches",
+          "Diamonds",
+          "Earrings",
+          "Gemstones",
+          "Necklaces",
+          "Rings",
+          "Watches"
+        ],
+        "type": "select",
+        "kind": "default",
+        "order": 5,
+        "order_gallery": 8,
+        "description": "Type of product",
+        "displayName": "Product Type",
+        "integratedTo": null,
+        "isHidden": false,
+        "value": null
+      },
+      {
+        "id": 93748,
+        "user_id": 2003,
+        "name": "quantity",
+        "prefix": "",
+        "suffix": "",
+        "values": [],
+        "type": "number",
+        "kind": "default",
+        "order": 2,
+        "order_gallery": 4,
+        "description": "Product quantity",
+        "displayName": "Quantity",
+        "integratedTo": null,
+        "isHidden": false,
+        "value": null
+      }
+    ],
+    "assignedToCatalogs": [
+      null
+    ]
+  }
+]
