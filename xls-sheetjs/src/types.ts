@@ -193,26 +193,27 @@ export type TRowStyleType = "tableRowOdd" | "tableRowEven"
 
 export type THeaderImage = {
   type: "image"
-  key: "images"
+  uniqueKey: "images"
 }
 
 export type THeaderProp = {
   type: "prop"
-  key: keyof IProductAttributes
+  uniqueKey: keyof IProductAttributes
 }
 
 export type THeaderAttribute = {
   type: "attribute"
-  key: "parameters"
-  attributeId: number
+  uniqueKey: string // stringified attribute_id
 }
 
 export type THeaderQR = {
   type: "qr"
-  key: "qrcode"
+  uniqueKey: "qrcode"
 }
 
 export type TTableHeader = {
   displayName: string,
+  position: number,
+  width: number,
 } & (THeaderProp | THeaderAttribute | THeaderImage | THeaderQR)
 
