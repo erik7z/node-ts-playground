@@ -1,2 +1,3 @@
 # node-ts-playground
-checking basic functionality 
+This repo is made for checking base functionality of some libraries used in projects.
+It helps understand and practice library usage in simple, playground conditions.
