@@ -41,6 +41,9 @@ npm config set @gemlightbox:registry https://registry.npmjs.com
 npm config set //registry.npmjs.com/:_authToken=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
 ```
 
+npm config set //registry.npmjs.com/:_authToken=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
+
+
 - or set above in .npmrc file for repo
 ```.npmrc
 //registry.npmjs.com/:_authToken=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
