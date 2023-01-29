@@ -52,6 +52,7 @@ import * as fs from 'fs';
 
 
   stringifier.end();
+
   const dest = fs.createWriteStream('files/csv-test.csv', { encoding: "utf-8" })
 
   stringifier.pipe(dest)
