@@ -301,38 +301,3 @@ spec:
               servicePort: 9090
 # EOF
 ```
-
-### Create a Grafana Deployment
-```yaml
-# grafana-deployment.yaml
-# kubectl apply -f << EOF - 
-apiVersion: apps/v1
-kind: Deployment
-metadata:
-  name: grafana-deployment
-  namespace: default #monitoring
-  labels:
-    app: grafana
-spec:
-  replicas: 1
-  selector:
-    matchLabels:
-      app: grafana
-  template:
-    metadata:
-      labels:
-        app: grafana
-    spec:
-      containers:
-        - name: grafana
-          image: grafana/grafana
-          ports:
-            - containerPort: 3000
-          volumeMounts:
-            - name: grafana-storage-volume
-              mountPath: /var/lib/grafana
-      volumes:
-        - name: grafana-storage-volume
-          emptyDir: {}
-# EOF
-```
