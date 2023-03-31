@@ -15,10 +15,8 @@ For the latest release of Helm, we recommend the latest stable release of Kubern
 gcloud auth login
 gcloud config set project seacontact
 gcloud config set compute/zone europe-west4-a
-gcloud container clusters create helm-charts --zone europe-west4-a --num-nodes 1
+gcloud container clusters create ez --zone europe-west4-a --num-nodes 1
 gcloud container clusters get-credentials ez --zone europe-west4-a 
-
-
 ```
 
 #### Installing and configuring Helm.
@@ -56,6 +54,9 @@ helm show chart bitnami/mysql
 helm get -h
 
 ```
+
+### [Configure helm charts](https://helm.sh/docs/intro/using_helm/#customizing-the-chart-before-installing)
+
 ### Releases
 Whenever you install a chart, a new release is created. 
 So one chart can be installed multiple times into the same cluster. 
