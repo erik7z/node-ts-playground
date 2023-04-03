@@ -57,7 +57,7 @@ helm install prometheus prometheus-community/kube-prometheus-stack -n monitoring
 - To see all configurable options with detailed comments:
 ```shell
 # save output to file
-helm show values prometheus-community/kube-prometheus-stack > values.yaml
+helm show values prometheus-community/kube-prometheus-stack > default_values.yaml
 ```
 
 
@@ -67,7 +67,7 @@ helm show values prometheus-community/kube-prometheus-stack > values.yaml
 ```shell
 # Grafana
 kubectl port-forward service/prometheus-grafana 3000:80 -n monitoring
-# Login to grafana with username: admin and password: prom-operator
+# Login to grafana with username: admin and password from values yaml)
 
 # Prometheus
 kubectl port-forward service/prometheus-kube-prometheus-prometheus 9090:9090 -n monitoring
@@ -79,6 +79,7 @@ kubectl port-forward service/prometheus-kube-prometheus-prometheus 9090:9090 -n 
   - Enter 12740 dashboard id for Kubernetes monitoring.
   - Enter 3119 dashboard id for Kubernetes cluster monitoring.
   - Enter 6417 dashboard id for POD Monitoring
+  - 
 - Click ‘Load’.
 - Select ‘Prometheus’ as the endpoint under prometheus data sources drop down.
 - Click ‘Import’.
