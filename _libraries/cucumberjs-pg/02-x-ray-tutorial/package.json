@@ -1,0 +1,15 @@
+{
+  "name": "cucmberjs-pg-x-ray",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test:cucumber:xray:report": "cucumber-js -f json:report.json"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "@cucumber/cucumber": "^9.1.0"
+  }
+}
