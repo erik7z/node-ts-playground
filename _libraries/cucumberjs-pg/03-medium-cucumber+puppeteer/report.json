@@ -1,0 +1,141 @@
+[
+  {
+    "description": "  In order to no longer have any of my data stored on the application\n  As a registered user\n  I want to be able to delete my data from the application",
+    "elements": [
+      {
+        "description": "",
+        "id": "delete-my-data;successfully-delete-my-data",
+        "keyword": "Scenario",
+        "line": 6,
+        "name": "Successfully delete my data",
+        "steps": [
+          {
+            "arguments": [],
+            "keyword": "Given ",
+            "line": 7,
+            "name": "I am a registered user",
+            "match": {
+              "location": "features/step_definitions/delete_my_data.steps.js:3"
+            },
+            "result": {
+              "status": "pending",
+              "duration": 242776
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "When ",
+            "line": 8,
+            "name": "I login to the application",
+            "match": {
+              "location": "features/step_definitions/delete_my_data.steps.js:8"
+            },
+            "result": {
+              "status": "skipped",
+              "duration": 0
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "And ",
+            "line": 9,
+            "name": "I visit my settings",
+            "match": {
+              "location": "features/step_definitions/delete_my_data.steps.js:13"
+            },
+            "result": {
+              "status": "skipped",
+              "duration": 0
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "When ",
+            "line": 10,
+            "name": "I click on \"Delete my data\"",
+            "match": {
+              "location": "features/step_definitions/delete_my_data.steps.js:18"
+            },
+            "result": {
+              "status": "skipped",
+              "duration": 0
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "And ",
+            "line": 11,
+            "name": "I fill in \"confirmation\" with \"registered_user_email@example.com\"",
+            "match": {
+              "location": "features/step_definitions/delete_my_data.steps.js:23"
+            },
+            "result": {
+              "status": "skipped",
+              "duration": 0
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "And ",
+            "line": 12,
+            "name": "I press \"Delete my data\"",
+            "match": {
+              "location": "features/step_definitions/delete_my_data.steps.js:28"
+            },
+            "result": {
+              "status": "skipped",
+              "duration": 0
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "Then ",
+            "line": 13,
+            "name": "I should be logged out of the application",
+            "match": {
+              "location": "features/step_definitions/delete_my_data.steps.js:33"
+            },
+            "result": {
+              "status": "skipped",
+              "duration": 0
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "And ",
+            "line": 14,
+            "name": "I should see \"Your data has been deleted from the application\"",
+            "match": {
+              "location": "features/step_definitions/delete_my_data.steps.js:38"
+            },
+            "result": {
+              "status": "skipped",
+              "duration": 0
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "And ",
+            "line": 15,
+            "name": "there shouldn't be any data for the user \"registered_user_email@example.com\"",
+            "match": {
+              "location": "features/step_definitions/delete_my_data.steps.js:43"
+            },
+            "result": {
+              "status": "skipped",
+              "duration": 0
+            }
+          }
+        ],
+        "tags": [],
+        "type": "scenario"
+      }
+    ],
+    "id": "delete-my-data",
+    "line": 1,
+    "keyword": "Feature",
+    "name": "Delete my data",
+    "tags": [],
+    "uri": "features/delete_my_data.feature"
+  }
+]
