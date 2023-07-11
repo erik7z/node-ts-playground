@@ -14,5 +14,12 @@ services:
     environment:
       - GF_SECURITY_ADMIN_USER=admin
       - GF_SECURITY_ADMIN_PASSWORD=grafana
+      - GF_INSTALL_PLUGINS=grafana-piechart-panel
+      - GF_USERS_DEFAULT_THEME=light
+      - GF_DASHBOARDS_DEFAULT_HOME_DASHBOARD_PATH=/etc/grafana/provisioning/dashboards/nodejs-dashboard.json
+    volumes:
+      - ./config/grafana/provisioning:/etc/grafana/provisioning
     ports:
       - 9000:3000
+    depends_on:
+      - prometheus
