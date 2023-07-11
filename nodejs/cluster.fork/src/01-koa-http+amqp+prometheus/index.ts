@@ -29,7 +29,7 @@ const router = new Router();
 
 if (cluster.isMaster) {
     // Object to store worker metrics
-    const workerMetrics = new Map<number, any>();
+    const workerMetrics = new Map<number, Prometheus.metric[]>();
 
     console.log(`Master process ${process.pid} is running`);
 
