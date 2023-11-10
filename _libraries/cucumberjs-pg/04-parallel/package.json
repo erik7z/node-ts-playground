@@ -1,0 +1,17 @@
+{
+  "name": "your-app",
+  "version": "1.0.0",
+  "main": "app.js",
+  "scripts": {
+    "start": "node src/server.js",
+    "test": "cucumber-js"
+  },
+  "dependencies": {
+    "express": "^4.17.1",
+    "pg": "^8.5.1"
+  },
+  "devDependencies": {
+    "@cucumber/cucumber": "^10.0.1",
+    "supertest": "^6.3.3"
+  }
+}
