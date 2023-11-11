@@ -1,4 +1,5 @@
-Feature: Simple API Endpoint 2
+Feature: Simple API Endpoint 3
+
   Scenario: 1 API returns data from PostgreSQL
     When I make a GET request to "/"
     Then the response status code should be 200

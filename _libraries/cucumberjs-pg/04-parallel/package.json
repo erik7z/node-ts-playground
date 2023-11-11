@@ -4,7 +4,7 @@
   "main": "app.js",
   "scripts": {
     "start": "node src/server.js",
-    "test": "cucumber-js --parallel 4"
+    "test": "DEBUG=cucumber cucumber-js --parallel 12"
   },
   "dependencies": {
     "express": "^4.17.1",
