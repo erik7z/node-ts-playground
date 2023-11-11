@@ -1,6 +1,7 @@
 const {setWorldConstructor, BeforeAll, AfterAll} = require('@cucumber/cucumber');
 const app = require('../../src/app');
 const supertest = require('supertest');
+const pool = require('../../src/db')
 
 class CustomWorld {
     constructor() {
@@ -12,21 +13,25 @@ setWorldConstructor(CustomWorld);
 
 let server;
 
-BeforeAll(function (done) {
+BeforeAll(async function () {
     if (!server) {
-        server = app.listen(0, done);
-    } else {
-        done();
+        server = await app.listen(0);
     }
+
+    const workerId = process.env.CUCUMBER_WORKER_ID || 'default';
+    const schemaName = `test_schema_${workerId}`;
+    await pool.query(`CREATE SCHEMA IF NOT EXISTS ${schemaName}`);
+    await pool.query(`SET search_path TO ${schemaName}`);
+    await pool.query('CREATE TABLE IF NOT EXISTS your_table (id SERIAL PRIMARY KEY, data TEXT NOT NULL)')
 });
 
-AfterAll(function (done) {
-    if (server) {
-        server.close(() => {
-            server = null;
-            done();
-        });
-    } else {
-        done();
+AfterAll(async function () {
+    const workerId = process.env.CUCUMBER_WORKER_ID || 'default';
+    const schemaName = `test_schema_${workerId}`;
+    await pool.query(`DROP SCHEMA IF EXISTS ${schemaName} CASCADE`);
+
+    if(server) {
+        await server.close();
+        server = null;
     }
 });
