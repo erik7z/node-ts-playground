@@ -1,7 +1,5 @@
 const app = require('./app');
 
-const port = 3000;
-
-app.listen(port, () => {
-    console.log(`App running on port ${port}.`);
+app.listen(0, () => {
+    console.log(`App running on dynamically assigned port.`);
 });

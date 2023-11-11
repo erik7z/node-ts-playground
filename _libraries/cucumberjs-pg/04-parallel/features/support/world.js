@@ -14,7 +14,7 @@ let server;
 
 BeforeAll(function (done) {
     if (!server) {
-        server = app.listen(3000, done);
+        server = app.listen(0, done);
     } else {
         done();
     }

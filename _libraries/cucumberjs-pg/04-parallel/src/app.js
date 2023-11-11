@@ -9,7 +9,7 @@ const pool = new Pool({
 
 app.get('/', async (req, res) => {
     try {
-        await new Promise(resolve => setTimeout(resolve, 5000));
+        await new Promise(resolve => setTimeout(resolve, 3000));
 
         const { rows } = await pool.query('SELECT * FROM your_table');
         res.json(rows);
