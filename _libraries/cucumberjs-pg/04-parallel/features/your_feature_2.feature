@@ -1,4 +1,4 @@
-Feature: Simple API Endpoint
+Feature: Simple API Endpoint - 3
   Scenario: API returns data from PostgreSQL
     Given database is empty
     When I make a GET request to "/"
