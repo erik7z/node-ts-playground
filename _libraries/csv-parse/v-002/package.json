@@ -1,0 +1,16 @@
+{
+  "name": "parse-csv",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "parse": "node ./index.js"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "csv": "^6.3.6",
+    "csv-parser": "^3.0.0"
+  }
+}
