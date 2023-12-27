@@ -25,7 +25,7 @@ function saveAndEndTransaction() {
 deleteOldFile();
 startTransaction();
 
-const FILE_PATH = './de_bns_202312221300.csv';
+const FILE_PATH = './27_12/ua11_bns_202312270854.csv';
 const MAX_LINES = 100000;
 
 let lineCount = 0;
