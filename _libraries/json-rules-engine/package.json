@@ -1,0 +1,23 @@
+{
+  "name": "json-rules-engine",
+  "version": "1.0.0",
+  "description": "",
+  "main": "dist/index.js",
+  "scripts": {
+    "start:00": "ts-node ./src/00-basic.ts",
+    "start:01": "ts-node ./src/01-extended.ts",
+    "start:02": "ts-node ./src/02-extended-async.ts",
+    "start:03": "ts-node ./src/03-BCRM-5050-campaign-by-triggers.ts",
+    "start:04": "ts-node ./src/04-BCRM-5050-campaign-by-triggers-v.1.1.ts"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "typescript": "^5.3.3"
+  },
+  "dependencies": {
+    "json-rules-engine": "^6.5.0",
+    "ts-node": "^10.9.2"
+  }
+}
