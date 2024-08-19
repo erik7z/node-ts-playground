@@ -8,7 +8,8 @@
     "start:01": "ts-node ./src/01-extended.ts",
     "start:02": "ts-node ./src/02-extended-async.ts",
     "start:03": "ts-node ./src/03-BCRM-5050-campaign-by-triggers.ts",
-    "start:04": "ts-node ./src/04-BCRM-5050-campaign-by-triggers-v.1.1.ts"
+    "start:04": "ts-node ./src/04-BCRM-5050-campaign-by-triggers-v.1.1.ts",
+    "start:05": "ts-node ./src/05-basic-test.ts"
   },
   "keywords": [],
   "author": "",
